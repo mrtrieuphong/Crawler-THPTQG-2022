@@ -1,7 +1,7 @@
 import requests
 import numpy as np
 from bs4 import BeautifulSoup, Tag
-with open('data.csv', 'w', encoding='utf-8') as w:
+with open('data.csv', 'w+', encoding='utf-8') as w:
     w.write('TO,NV,SU,DI,VL,HH,SH,NN,GD\n')
     for idx in range(10000001, 99999999):
         page = requests.get("https://vietnamnet.vn/giao-duc/diem-thi/tra-cuu-diem-thi-tot-nghiep-thpt/2022/{}.html".format(idx))
