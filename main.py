@@ -1,6 +1,7 @@
 import requests
 import numpy as np
 from bs4 import BeautifulSoup, Tag
+
 with open('data.csv', 'w', encoding='utf-8') as w:
     w.write('TO,NV,SU,DI,VL,HH,SH,NN,GD\n')
     for idx in range(10000001, 99999999):
@@ -12,9 +13,15 @@ with open('data.csv', 'w', encoding='utf-8') as w:
             elements = soup.find_all("td")
             n = 2
             elements = [elements[i:i+n] for i in range(0, len(elements), n)]
-
-            subjects = {'Toán': '', 'Văn': '', 'Sử': '', 'Địa': '', 'Lí': '',
-                        'Hoá': '', 'Sinh': '', 'Ngoại ngữ': '', 'GDCD': ''}
+            subjects = {'Toán': '',
+                        'Văn': '',
+                        'Sử': '',
+                        'Địa': '',
+                        'Lí': '',
+                        'Hoá': '',
+                        'Sinh': '',
+                        'Ngoại ngữ': '',
+                        'GDCD': ''}
             for element in elements:
                 for key, value in subjects.items():
                     if element[0].text == key:
